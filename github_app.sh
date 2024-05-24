@@ -1,8 +1,17 @@
-# add files 
+#!/bin/bash
+
+# Add files to staging
 git add .
 
-#commit
-git commit -m "Updated files"
+# Prompt the user for a commit message
+echo "Enter your commit message:"
+read commit_msg
 
-#push to this branch
-git push origin lesson-2
+# Commit with the provided message
+git commit -m "$commit_msg"
+
+# Get the current branch name
+current_branch=$(git branch --show-current)
+
+# Push to the current branch
+git push origin "$current_branch"
