@@ -5,3 +5,6 @@ alert(message);
 
 console.log(getMessage());
 console.log(getGreeting());
+
+const school = "Bathpahge ICT Center";
+console.log(school);
