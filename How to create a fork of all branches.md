@@ -54,3 +54,4 @@ git checkout master
 ```
 
 7. Push all to github
+8. git branch --show-current (to check current branch)
