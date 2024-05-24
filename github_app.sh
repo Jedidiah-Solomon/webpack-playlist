@@ -15,3 +15,8 @@ current_branch=$(git branch --show-current)
 
 # Push to the current branch
 git push origin "$current_branch"
+
+echo "Action complted sucessfully"
+
+#chmod +x github_app.sh  --to make it executable
+
