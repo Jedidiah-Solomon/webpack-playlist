@@ -16,7 +16,8 @@ current_branch=$(git branch --show-current)
 
 # Check if the entered branch exists in the list of available branches
 branch_exists=false
-for available_branch in "${available_branches[@]}"; do
+for available_branch in "${available_branches[@]}"; 
+do
     if [ "$available_branch" == "$new_branch" ]; then
         branch_exists=true
         break
