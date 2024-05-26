@@ -17,7 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install
@@ -32,7 +32,7 @@ jobs:
         run: npm run myCypress -- --spec "cypress/e2e/test2.cy.js,cypress/e2e/responsive.cy.js"
 
       - name: Upload Cypress videos
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos/**/*.mp4
