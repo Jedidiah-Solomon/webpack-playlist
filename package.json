@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack",
     "serve": "http-server ./ -p 8080",
-    "myCypress": "cypress run"
+    "myCypress": "cypress run",
+    "myCypressOpen": "npx cypress open"
   },
   "keywords": [
     "Webpack",

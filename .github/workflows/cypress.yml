@@ -30,3 +30,9 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run myCypress -- --spec "cypress/e2e/test2.cy.js,cypress/e2e/responsive.cy.js"
+
+      - name: Upload Cypress videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos
+          path: cypress/videos/**/*.mp4
