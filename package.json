@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack"
+    "start": "npx webpack",
+    "myCypress": "npx cypress open"
   },
   "keywords": [
     "Webpack",
