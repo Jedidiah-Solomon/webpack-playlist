@@ -1,6 +1,9 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  // These settings apply everywhere unless overridden
+  defaultCommandTimeout: 7000,
+
   e2e: {
     //watchForFileChanges: false, //This is true by default, so if you use false then you will need reload
 
@@ -13,9 +16,16 @@ module.exports = defineConfig({
 
     // Set a base url to avoid repeating url - using http-server here at port 8080.
     baseUrl: "http://localhost:8080",
+    video: true,
+    videosFolder: "cypress/videos",
 
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+  },
+
+  // Default Command Timeout settings overridden for component tests
+  component: {
+    defaultCommandTimeout: 6000,
   },
 });
