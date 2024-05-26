@@ -11,7 +11,7 @@ module.exports = defineConfig({
     // Set the where the server or root folder is
     fileServerFolder: ".",
 
-    // Set a base url to avoid repeating url - using http-server here at port 8080
+    // Set a base url to avoid repeating url - using http-server here at port 8080.
     baseUrl: "http://localhost:8080",
 
     setupNodeEvents(on, config) {

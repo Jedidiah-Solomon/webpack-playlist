@@ -13,7 +13,7 @@ describe("Responsive Design Tests", () => {
     // Check URL after clicking login
     cy.url().should("include", "/pages/login.html");
 
-    // Interact with an input field and verify its value
+    // Interact with an input field and verify its value. Check auth too/validation
     cy.get("#email").type("fake@email.com");
     cy.get("#email").should("have.value", "fake@email.com");
   });

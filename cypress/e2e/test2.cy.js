@@ -15,7 +15,7 @@ describe("Home Page", () => {
     // Check if the URL includes '/pages/login.html' (assuming this is a part of your URL after loading)
     cy.url().should("include", "/pages/login.html");
 
-    // Interact with an input field and verify its value
+    // Interact with an input field and verify its value. Check auth too/validation
     //cy.get(".form-control").type("fake@email.com"); //this can only be called on a single element thus id is best not class except the class is just one in the page
     cy.get("#email").type("fake@email.com");
     //cy.get("#email").type("fakeemail.com"); //This will pull an error since user typed email without @
