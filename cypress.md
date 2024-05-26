@@ -262,3 +262,36 @@ Best media queries - CSS
 1. Mobile devices: @media (max-width: 480px) and @media (max-width: 768px) --480px for smaller devices and 768px for larger phones and small tablets in portrait mode.
 
 2. Tablet devices: @media (max-width: 1024px) --Tablets are typically targeted with max-width values ranging from 768px to 1024px.
+
+---
+
+The fileServerFolder and baseUrl configurations serve different purposes and can indeed be used together in the Cypress configuration file. Here's how they work and how you can use them in conjunction:
+
+fileServerFolder: This sets the folder where Cypress will serve your local files. It's useful for testing static files or smaller projects where you don't want to set up a full web server.
+baseUrl: This sets a base URL for your tests, which is typically used to avoid repeating the full URL in your test scripts. This is useful when you're testing a project that is served by a local server, such as a development server or a deployed application.
+
+```
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  e2e: {
+    //watchForFileChanges: false, //This is true by default, so if you use false then you will need reload
+
+    // Set default viewport size - without setting cypress uses 1000px x 660px (width x height)
+    viewportWidth: 1280,
+    viewportHeight: 720,
+
+    // Set the where the server or root folder is
+    fileServerFolder: ".", //if for instance your index.html is in root folder
+    fileServerFolder: "public",// if for instance your index.html is in public folder
+
+
+    // Set a base url to avoid repeating url - using http-server here at port 8080.
+    baseUrl: "http://localhost:8080",
+
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+});
+```

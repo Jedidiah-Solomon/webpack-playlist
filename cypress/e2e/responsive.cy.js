@@ -10,6 +10,11 @@ describe("Responsive Design Tests", () => {
 
     cy.contains("Jedybrown Ventures");
 
+    // Get the hamburger icon and click it
+    cy.get("#hamburger").click();
+
+    cy.contains("Login").click();
+
     // Check URL after clicking login
     cy.url().should("include", "/pages/login.html");
 
