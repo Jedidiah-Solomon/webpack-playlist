@@ -15,11 +15,21 @@ describe("Responsive Design Tests", () => {
 
     cy.contains("Login").click();
 
+    // Wait for 3 seconds
+    cy.wait(3000);
+
     // Check URL after clicking login
     cy.url().should("include", "/pages/login.html");
 
+    // Wait for 2 second
+    cy.wait(2000);
+
     // Interact with an input field and verify its value. Check auth too/validation
     cy.get("#email").type("fake@email.com");
+
+    // Wait for 2 second
+    cy.wait(2000);
+
     cy.get("#email").should("have.value", "fake@email.com");
   });
 
