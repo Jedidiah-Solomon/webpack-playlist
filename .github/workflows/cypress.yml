@@ -1,0 +1,27 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+      - lesson-2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: |
+          npm run myCypress -- --spec "cypress/e2e/test2.cy.js,cypress/e2e/responsive.cy.js"
