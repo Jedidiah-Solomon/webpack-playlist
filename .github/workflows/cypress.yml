@@ -22,6 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Start http-server
+        run: npm run serve &
+
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:8080
+
       - name: Run Cypress tests
-        run: |
-          npm run myCypress -- --spec "cypress/e2e/test2.cy.js,cypress/e2e/responsive.cy.js"
+        run: npm run myCypress -- --spec "cypress/e2e/test2.cy.js,cypress/e2e/responsive.cy.js"
