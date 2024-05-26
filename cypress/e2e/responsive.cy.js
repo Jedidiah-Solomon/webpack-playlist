@@ -6,7 +6,7 @@ describe("Responsive Design Tests", () => {
     // Set viewport size for mobile
     cy.viewport(375, 667); // iPhone 6/7/8
 
-    cy.visit("https://e-commerce-shop-and-api-market-2.onrender.com/");
+    cy.visit("/index.html");
 
     cy.contains("Jedybrown Ventures");
 
@@ -23,8 +23,7 @@ describe("Responsive Design Tests", () => {
     // Set viewport size for tablet
     cy.viewport(768, 1024); // iPad
 
-    cy.visit("https://e-commerce-shop-and-api-market-2.onrender.com/");
-
+    cy.visit("/index.html");
     cy.contains("Jedybrown Ventures");
     cy.contains("Login").click();
 
@@ -39,7 +38,7 @@ describe("Responsive Design Tests", () => {
     // Set viewport size for desktop
     cy.viewport(1280, 720); // Desktop
 
-    cy.visit("https://e-commerce-shop-and-api-market-2.onrender.com/");
+    cy.visit("/index.html");
 
     cy.contains("Jedybrown Ventures");
     cy.contains("Login").click();

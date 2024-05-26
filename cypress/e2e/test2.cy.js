@@ -7,7 +7,8 @@ describe("Home Page", () => {
     //cy.viewport(768, 1024); //Tab -  Ipad - Portrait
     //cy.viewport(375, 667); //Mobile - Iphone x - Portrait
 
-    cy.visit("https://e-commerce-shop-and-api-market-2.onrender.com/");
+    cy.visit("/index.html");
+
     cy.contains("Jedybrown Ventures");
     cy.contains("Login").click(); //this clicks on the login link, shows the before and after page load
 

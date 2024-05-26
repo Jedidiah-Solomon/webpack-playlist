@@ -8,6 +8,12 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 720,
 
+    // Set the where the server or root folder is
+    fileServerFolder: ".",
+
+    // Set a base url to avoid repeating url
+    baseUrl: "http://localhost:8080",
+
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
