@@ -360,3 +360,11 @@ module.exports = defineConfig({
 });
 
 ```
+
+------------||||---------------
+
+## Component Testing
+
+1. npm install cypress @cypress/react @cypress/webpack-dev-server
+
+When you install Cypress, it primarily sets up the environment for end-to-end (E2E) testing. However, for component testing, especially for frameworks like React, you need additional packages to properly mount and test your components. This is where @cypress/react and @cypress/webpack-dev-server come into play.
