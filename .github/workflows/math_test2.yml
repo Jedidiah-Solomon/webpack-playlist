@@ -1,4 +1,4 @@
-name: Math Tests
+name: Math Tests 2
 
 on:
   pull_request:
