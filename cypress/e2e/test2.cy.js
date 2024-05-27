@@ -17,6 +17,7 @@ describe("Home Page", () => {
 
     // Interact with an input field and verify its value. Check auth too/validation
     //cy.get(".form-control").type("fake@email.com"); //this can only be called on a single element thus id is best not class except the class is just one in the page
+    //cy.get("#email", { timeout: 8000 }).type("fake@email.com { enter }");  if the stuff is a form
     cy.get("#email").type("fake@email.com");
     //cy.get("#email").type("fakeemail.com"); //This will pull an error since user typed email without @
     cy.get("#email").should("have.value", "fake@email.com");
