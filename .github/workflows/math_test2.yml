@@ -17,13 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-        - name: Debug Info
-        run: |
-          echo "Running on ${{ matrix.os }} with Node.js ${{ matrix.node }}"
-          node -v
-          npm -v
-          npm ls
-
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
@@ -42,6 +35,13 @@ jobs:
 
       - name: Wait for server to be ready
         run: npx wait-on http://localhost:8080
+
+      - name: Debug Info
+        run: |
+          echo "Running on ${{ matrix.os }} with Node.js ${{ matrix.node }}"
+          node -v
+          npm -v
+          npm ls
 
       - name: Run Cypress tests
         run: npm run myCypress -- --spec "cypress/e2e/math2.cy.js"
