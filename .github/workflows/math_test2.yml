@@ -1,0 +1,53 @@
+name: Math Tests 2
+
+on:
+  pull_request:
+    branches:
+      - lesson-2
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [18, 20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start http-server (Ubuntu)
+        if: runner.os == 'Linux'
+        run: npm run serve &
+
+      - name: Start http-server (Windows)
+        if: runner.os == 'Windows'
+        run: Start-Process -NoNewWindow -FilePath "cmd" -ArgumentList "/c npm run serve"
+
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:8080
+
+      - name: Debug Info
+        run: |
+          echo "Running on ${{ matrix.os }} with Node.js ${{ matrix.node }}"
+          node -v
+          npm -v
+          npm ls
+
+      - name: Run Cypress tests
+        run: npm run myCypress -- --spec "cypress/e2e/math2.cy.js"
+
+      - name: Upload Cypress videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos/**/*.mp4
